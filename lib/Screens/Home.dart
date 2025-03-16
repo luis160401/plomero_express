@@ -45,7 +45,8 @@ Navigator.pushReplacementNamed(context, "/login");
     Icons.work,
     Icons.map_rounded,
     Icons.handyman,
-    Icons.money
+    Icons.money,
+    Icons.home
   ];
 
   final NotchBottomBarController _notchBottomBarController =NotchBottomBarController(index: 0);
@@ -128,6 +129,7 @@ Navigator.pushReplacementNamed(context, "/login");
       kBottomRadius: 20.0,
       bottomBarItems: [
 
+        
         BottomBarItem(inActiveItem: Icon(icons[1], color: Colors.white,)
                     , activeItem: Icon(icons[1], color: const Color.fromARGB(255, 255, 158, 13),)),
       
