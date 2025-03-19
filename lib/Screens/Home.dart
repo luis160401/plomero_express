@@ -8,6 +8,10 @@ import 'Materiales.dart';
 import 'Mapas.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
+import 'package:motion_tab_bar/MotionTabBar.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+
 
 
 
@@ -41,11 +45,10 @@ Navigator.pushReplacementNamed(context, "/login");
   ];
 
   final List<IconData> icons = [
-    Icons.home,
     Icons.work,
     Icons.map_rounded,
-    Icons.handyman,
     Icons.money,
+    Icons.home,
     Icons.home
   ];
 
@@ -115,44 +118,53 @@ Navigator.pushReplacementNamed(context, "/login");
          ]               
 
       ),
-      extendBody: true,
       body: _screens[_selectedIndex],
-       floatingActionButton: FloatingActionButton(onPressed: (){
-      }
-      ),
-      bottomNavigationBar: AnimatedNotchBottomBar(
-      notchBottomBarController: _notchBottomBarController,
-      color: Colors.blueAccent,
-      notchColor: const Color.fromARGB(255, 255, 255, 255),
-      showLabel: false,
-      kIconSize: 30.0,
-      kBottomRadius: 20.0,
-      bottomBarItems: [
 
-        
-        BottomBarItem(inActiveItem: Icon(icons[1], color: Colors.white,)
-                    , activeItem: Icon(icons[1], color: const Color.fromARGB(255, 255, 158, 13),)),
       
-        BottomBarItem(inActiveItem: Icon(icons[2], color: Colors.white,)
-                    , activeItem: Icon(icons[2], color: Color.fromARGB(255, 255, 158, 13),)),
+      bottomNavigationBar: BottomNavyBar(
+      selectedIndex: _selectedIndex,
+      onItemSelected: (index)=>setState(() =>_selectedIndex = index),
+      backgroundColor: Colors.blueAccent,
 
-        BottomBarItem(inActiveItem: Icon(icons[3], color: Colors.white,)
-                    , activeItem: Icon(icons[3], color: Color.fromARGB(255, 255, 158, 13),)),
+        items: [
+        BottomNavyBarItem(
+          icon: SvgPicture.asset("assets/logo.svg", width: 24, height: 24),
+          title: Text("Home"),
+          activeColor:const Color.fromARGB(255, 255, 142, 12),
+          inactiveColor: Colors.white,),
 
-        BottomBarItem(inActiveItem: Icon(icons[4], color: Colors.white,)
-                    , activeItem: Icon(icons[4], color: Color.fromARGB(255, 255, 158, 13),)),
-        
-        BottomBarItem(inActiveItem: Icon(icons[5], color: Colors.white,)
-                    , activeItem: Icon(icons[5], color: Color.fromARGB(255, 255, 158, 13),)),
+          BottomNavyBarItem(
+            icon: SvgPicture.asset("assets/Trabajos.svg", width: 24, height: 24),
+            title: Text("Trabajos"),
+            activeColor:const Color.fromARGB(255, 255, 142, 12),
+            inactiveColor: Colors.white,),
 
+          BottomNavyBarItem(
+          icon: Icon(Icons.map_rounded),
+          title: Text("Mapas"),
+          activeColor:const Color.fromARGB(255, 255, 142, 12),
+          inactiveColor: Colors.white,),
+
+          BottomNavyBarItem(
+            icon: SvgPicture.asset("assets/materiales.svg", width: 24, height: 24),
+            title: Text("Materiales"),
+            activeColor:const Color.fromARGB(255, 255, 142, 12),
+            inactiveColor: Colors.white,),
+          
+          BottomNavyBarItem(
+          icon: SvgPicture.asset("assets/factura.svg", width: 24, height: 24),
+          title: Text("Facturas"),
+          activeColor:const Color.fromARGB(255, 255, 142, 12),
+          inactiveColor: Colors.white,),
+
+          
           ],
 
-          onTap: (index) {
-                setState(() {
-                  _selectedIndex=index;
-            });
-          }
+          
+          
       )
+
+    
 
     );
   }

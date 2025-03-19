@@ -39,6 +39,10 @@ dependencies:
   change_app_package_name: ^1.1.0
   firebase_core: ^3.12.1
   firebase_auth: ^5.5.1
+  flutter_svg: ^2.0.17
+  motion_tab_bar: ^2.0.4
+  bottom_navy_bar: ^6.1.0
+  convex_bottom_bar: ^3.2.0
 
 dev_dependencies:
   flutter_test:
@@ -59,6 +63,10 @@ flutter:
   assets:
     - assets/images/factura.webp
     - assets/images/logo.jpg
+    - assets/images/factura.svg
+    - assets/images/logo.svg
+    - assets/image/trabajos.svg
+    - assets/image/materiales.svg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
